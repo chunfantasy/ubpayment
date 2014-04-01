@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!--
+		<constant name="struts.enable.DynamicMethodInvocation" value="false"
+		/> <constant name="struts.devMode" value="false" /> <include
+		file="example.xml"/> <package name="default" namespace="/"
+		extends="struts-default"> <default-action-ref name="index" /> <action
+		name="index"> <result type="redirectAction"> <param
+		name="actionName">HelloWorld</param> <param
+		name="namespace">/example</param> </result> </action> </package>
+	-->
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
+	<package name="account" namespace="/ubaccount" extends="struts-default">
+		<action name="login" class="com.whut.ub.action.LoginAction">
+			<result name="login_success">
+				/ubaccount/login_success.jsp
+            </result>
+		</action>
+		<action name="list" class="com.whut.ub.action.AccountListAction">
+			<result>
+				/ubaccount/list.jsp
+            </result>
+		</action>
+		<action name="transfer" class="com.whut.ub.action.TransferAction">
+			<result name="transfer">
+				/ubaccount/transfer.jsp
+            </result>
+            <result name="in">
+				/ubaccount/transfer_in.jsp
+            </result>
+            <result name="out">
+				/ubaccount/transfer_out.jsp
+            </result>
+		</action>
+	</package>
+
+	<package name="transaction" namespace="/ubtransaction" extends="struts-default">
+		<action name="list" class="com.whut.ub.action.TransactionListAction">
+			<result name="list_buyer">
+				/ubtransaction/list_buyer.jsp
+            </result>
+			<result name="list_seller">
+				/ubtransaction/list_seller.jsp
+            </result>
+		</action>
+		<action name="detail" class="com.whut.ub.action.TransactionDetailAction">
+			<result name="dsp_buyer">
+				/ubtransaction/detail_dsp_buyer.jsp
+            </result>
+			<result name="dpd_buyer">
+				/ubtransaction/detail_dpd_buyer.jsp
+            </result>
+			<result name="ddr_buyer">
+				/ubtransaction/detail_ddr_buyer.jsp
+            </result>
+			<result name="drg_buyer">
+				/ubtransaction/detail_drg.jsp
+            </result>
+			<result name="dsp_seller">
+				/ubtransaction/detail_dsp_seller.jsp
+            </result>
+			<result name="dpd_seller">
+				/ubtransaction/detail_dpd_seller.jsp
+            </result>
+			<result name="ddr_seller">
+				/ubtransaction/detail_ddr_seller.jsp
+            </result>
+			<result name="drg_seller">
+				/ubtransaction/detail_drg.jsp
+            </result>
+			<result name="message">
+				/ubutil/message.jsp
+            </result>
+            <result name="csd_buyer">
+				/ubtransaction/detail_csd_buyer.jsp
+            </result>
+			<result name="cdr_buyer">
+				/ubtransaction/detail_cdr_buyer.jsp
+            </result>
+			<result name="crp_buyer">
+				/ubtransaction/detail_crp_buyer.jsp
+            </result>
+			<result name="cpg_buyer">
+				/ubtransaction/detail_cpg.jsp
+            </result>
+            <result name="csd_seller">
+				/ubtransaction/detail_csd_seller.jsp
+            </result>
+			<result name="cdr_seller">
+				/ubtransaction/detail_cdr_seller.jsp
+            </result>
+			<result name="crp_seller">
+				/ubtransaction/detail_crp_seller.jsp
+            </result>
+			<result name="cpg_seller">
+				/ubtransaction/detail_cpg.jsp
+            </result>
+		</action>
+		<action name="detail_d" class="com.whut.ub.action.TransactionDetailDAction">
+			<result name="message">
+				/ubutil/message.jsp
+            </result>
+		</action>
+		<action name="detail_c" class="com.whut.ub.action.TransactionDetailCAction">
+			<result name="message">
+				/ubutil/message.jsp
+            </result>
+		</action>
+	</package>
+	<!-- Add packages here -->
+
+</struts>
